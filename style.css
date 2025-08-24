@@ -1,0 +1,282 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Times New Roman', cursive;
+    color: black;
+    overflow: hidden;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+    text-align: center;
+}
+.hidden { display: none; }
+input {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    border: none;
+}
+button {
+    padding: 10px 20px;
+    background: hotpink;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.nav-btn {
+    padding: 8px 15px;
+    background: rgba(255,192,203,0.8);
+    border: none;
+    margin: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Times New Roman', cursive;
+}
+/* #messageText {
+    font-size: 2em;
+    background: rgb(255, 255, 255);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 80%;
+} */
+ #messageText {
+    font-size: 2em;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 80%;
+    line-height: 1.6;
+    color: #4a148c; /* tím sang trọng */
+    font-family: 'Times New Roman', serif;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#sticker {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    max-width: 150px;
+    pointer-events: none;
+}
+#fireworksCanvas, #balloonsCanvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+}
+
+#finalText {
+    position: fixed;
+    top: 10%;
+    width: 100%;
+    text-align: center;
+    font-size: 5em;
+    text-shadow: 0 0 20px yellow, 0 0 40px orange;
+    animation: glow 1s infinite alternate;
+}
+@keyframes glow {
+    from { text-shadow: 0 0 20px yellow; }
+    to { text-shadow: 0 0 40px red; }
+}
+#cake {
+    position: fixed;
+    bottom: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    border-radius: 20px;
+    border: 5px solid white; /* viền trắng */
+    box-shadow: 0 0 20px rgba(255, 192, 203, 0.8); /* ánh sáng hồng */
+}
+/* From Uiverse.io by Li-Deheng */ 
+.btn-conteiner {
+    display: flex;
+    justify-content: center;
+    --color-text: #ffffff;
+    --color-background: #ff135a;
+    --color-outline: #ff145b80;
+    --color-shadow: #00000080;
+}
+.btn-NextPrev {
+    display: flex;
+    justify-content: center; /* canh giữa */
+    align-items: center;
+    gap: 200px; /* khoảng cách giữa 2 nút */
+}
+
+.btn-NextPrev .btn-conteiner {
+    margin: 0; /* bỏ margin thừa nếu có */
+}
+
+
+.btn-content {
+    display: flex;
+    align-items: center;
+    padding: 5px 30px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 30px;
+    color: var(--color-text);
+    background: var(--color-background);
+    transition: 1s;
+    border-radius: 100px;
+    box-shadow: 0 0 0.2em 0 var(--color-background);
+}
+
+.btn-content:hover, .btn-content:focus {
+    transition: 0.5s;
+    -webkit-animation: btn-content 1s;
+    animation: btn-content 1s;
+    outline: 0.1em solid transparent;
+    outline-offset: 0.2em;
+    box-shadow: 0 0 0.4em 0 var(--color-background);
+}
+
+.btn-content .icon-arrow {
+    transition: 0.5s;
+    margin-right: 0px;
+    transform: scale(0.6);
+}
+
+.btn-content:hover .icon-arrow {
+    transition: 0.5s;
+    margin-right: 25px;
+}
+
+.icon-arrow {
+    width: 20px;
+    margin-left: 15px;
+    position: relative;
+    top: 6%;
+}
+
+/* SVG */
+#arrow-icon-one {
+    transition: 0.4s;
+    transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+    transition: 0.5s;
+    transform: translateX(-30%);
+}
+
+.btn-content:hover #arrow-icon-three {
+    animation: color_anim 1s infinite 0.2s;
+}
+
+.btn-content:hover #arrow-icon-one {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.6s;
+}
+
+.btn-content:hover #arrow-icon-two {
+    transform: translateX(0%);
+    animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+    0% {
+        fill: white;
+    }
+
+    50% {
+        fill: var(--color-background);
+    }
+
+    100% {
+        fill: white;
+    }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+    0% {
+        outline: 0.2em solid var(--color-background);
+        outline-offset: 0;
+    }
+}
+
+@keyframes btn-content {
+    0% {
+        outline: 0.2em solid var(--color-background);
+        outline-offset: 0;
+    }
+}
+
+.numKey, .actionKey {
+    height: 60px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #ff80ab, #b388ff);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+/* Hiệu ứng hover (sáng hơn) */
+.numKey:hover, .actionKey:hover {
+    background: linear-gradient(135deg, #ffb3d9, #c7a4ff);
+    transform: scale(1.05);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.3);
+}
+
+/* Hiệu ứng click (đổi màu đậm hơn) */
+.numKey:active, .actionKey:active {
+    background: linear-gradient(135deg, #e91e63, #7c4dff);
+    transform: scale(0.95);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+.errorText {
+    color: #ffffff; /* đỏ hồng dễ nhìn hơn */
+    margin-top: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 
+        0 0 6px #ff4de1,   /* hồng neon */
+        0 0 12px #ff1aff, 
+        0 0 20px #ff66ff, 
+        0 0 35px #ff99ff; 
+    animation: shake 0.3s ease-in-out, glow 1.5s infinite alternate;
+}
+
+/* Hiệu ứng rung lắc khi hiện lỗi */
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    50% { transform: translateX(4px); }
+    75% { transform: translateX(-4px); }
+    100% { transform: translateX(0); }
+}
+
+/* Hiệu ứng sáng dần mờ dần */
+@keyframes glow {
+    from { text-shadow: 0 0 6px #ff66ff, 0 0 15px #ff33cc; }
+    to   { text-shadow: 0 0 15px #ff99ff, 0 0 30px #ff33ff; }
+}
