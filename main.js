@@ -31,6 +31,11 @@ function checkLogin() {
         document.body.style.backgroundImage = `url('${messages[0].bg}')`;
         document.getElementById("messages").classList.remove("hidden");
         typeMessage(messages[0].text);
+        // 🔊 Phát nhạc khi login thành công
+        const audio = document.getElementById("bgm");
+        audio.play().catch(err => {
+            console.log("Autoplay bị chặn:", err);
+        });
     } else {
         document.getElementById("loginError").innerText = "Aww, mật khẩu bị sai rùii. Zui lòng nhập lại nghennn!";
         // 🔥 Reset mật khẩu nhập sai
