@@ -10,24 +10,18 @@
 <body>
 
 <!-- Login -->
-<!-- <div id="login" class="center" style="background: url('Picture/main.png') no-repeat center center; background-size: cover;">
-    <h2>🎂 Đăng nhập để nhận bất ngờ 🎂</h2>
-    <p><i>Gợi ý: Tên bạn và mật khẩu đặc biệt 😉</i></p>
-    <input type="text" id="username" placeholder="Tên đăng nhập" style="font-family: 'Times New Roman', Times, serif;"><br>
-    <input type="password" id="password" placeholder="Mật khẩu" style="font-family: 'Times New Roman', Times, serif;"><br>
-    <button style="font-family: 'Times New Roman', Times, serif;" onclick="checkLogin()">Đăng nhập</button>
-    <p id="loginError" style="color: yellow;"></p>
-</div> -->
-<!-- Login -->
 <div id="login" class="center"
      style="background: url('Picture/main.png') no-repeat center center; background-size: cover; padding: 30px; border-radius: 15px;">
 
-    <h2 style="color:black; ">🎂 Hey tỷ tỷ, cho em xin ngày sinh để mở khóa nhennn! 🎂</h2>
-    <h2 style="color:black;">Note: Phải đủ 8 số đóa nhaaa</h2>
+    <h2 style="color:black; ">🎂 Hey chị, hãy nhập ngày sinh của chị để mở khóa nhen! 🎂</h2>
+    <h2 style="color:black;">Note: Phải đủ 8 số đó nhaaa</h2>
+
+    <!-- Avatar nhỏ phía trên ô nhập mật mã -->
+    <img id="avatar" src="Picture/avartar.jpg" alt="Avatar" class="avatar-img">
 
     <!-- Textbox hiển thị số -->
     <input type="text" id="pinBox" readonly
-           style="width: 220px; height: 40px; font-size: 20px; text-align: center; margin-bottom: 15px; border-radius: 8px; border: none; box-shadow: 0 0 10px rgba(0,0,0,0.3);"><br>
+           style="width: 220px; height: 20px; font-size: 20px; text-align: center; margin-bottom: 15px; border-radius: 8px; border: none; box-shadow: 0 0 10px rgba(0,0,0,0.3);"><br>
 
     <!-- Bàn phím số -->
     <div id="keypad" style="display: grid; grid-template-columns: repeat(3, 70px); gap: 10px; justify-content: center;">
@@ -99,7 +93,9 @@
 <!-- Kết thúc -->
 <canvas id="fireworksCanvas" class="hidden"></canvas>
 <canvas id="balloonsCanvas" class="hidden"></canvas>
-<div id="finalText" class="hidden">🎉 HAPPY BIRTHDAY 🎉</div>
+<div id="finalText" class="hidden">
+    <span class="shine"> HAPPY BIRTHDAY </span>
+</div>
 <img id="cake" class="hidden" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzk0NGQ5OGV0bTEzcDk2dHNxazJyeW1yd2k1MzIzcDlsZ241M3A0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qjGEB7KA4ZR680owhY/giphy.gif">
 
 <!-- <audio id="music" src="/Audio/audio.mp3" autoplay loop></audio> -->

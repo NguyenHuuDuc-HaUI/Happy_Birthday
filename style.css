@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 html, body {
     margin: 0;
     padding: 0;
@@ -46,18 +47,46 @@ button {
 } */
  #messageText {
     font-size: 2em;
-    background: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 15px;
+    background: linear-gradient(135deg, #ffe0f7 70%, #ffb3d9 100%);
+    padding: 28px 36px;
+    border-radius: 18px;
     max-width: 80%;
     line-height: 1.6;
-    color: #4a148c; /* tím sang trọng */
+    color: #d72660; /* hồng đậm */
     font-family: 'Times New Roman', serif;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 32px rgba(255, 0, 128, 0.18);
+    position: relative;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 1.5s ease forwards;
+    animation: fadeInUp 1.5s ease forwards, heartShake 2.5s infinite alternate;
+    margin-bottom: 100px; /* Thêm dòng này để tăng khoảng cách */
+}
+
+/* Trái tim nhỏ xung quanh */
+#messageText::before, #messageText::after {
+    content: "💖💗💞";
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.7;
+    pointer-events: none;
+}
+#messageText::before {
+    top: 8px;
+    left: 18px;
+    transform: rotate(-12deg);
+}
+#messageText::after {
+    bottom: 8px;
+    right: 18px;
+    transform: rotate(10deg);
+}
+
+/* Hiệu ứng rung nhẹ */
+@keyframes heartShake {
+    0% { transform: translateY(20px) scale(1); }
+    50% { transform: translateY(18px) scale(1.03); }
+    100% { transform: translateY(20px) scale(1); }
 }
 
 @keyframes fadeInUp {
@@ -91,13 +120,44 @@ button {
     width: 100%;
     text-align: center;
     font-size: 5em;
-    text-shadow: 0 0 20px yellow, 0 0 40px orange;
-    animation: glow 1s infinite alternate;
+    font-family: 'Pacifico', cursive;
+    color: #ff1744; /* đỏ tươi nổi bật */
+    text-shadow:
+        0 0 20px #ff1744,
+        0 0 40px #ff3cac,
+        0 0 60px #fff,
+        0 0 80px #ffb3d9;
+    animation: glow 1.2s infinite alternate, shineMove 2.5s infinite linear;
+    z-index: 999;
 }
+
+.shine {
+    background: linear-gradient(90deg, #ff1744 60%, #ff3cac 80%, #ffb3d9 100%);
+    background-size: 400% 400%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: #ff1744;
+    background-clip: text;
+    color: #ff1744;
+    animation: shineGradient 3s ease-in-out infinite;
+}
+
 @keyframes glow {
-    from { text-shadow: 0 0 20px yellow; }
-    to { text-shadow: 0 0 40px red; }
+    from { text-shadow: 0 0 20px #fff, 0 0 40px #ff3cac; }
+    to { text-shadow: 0 0 40px #fff, 0 0 80px #ffb3d9; }
 }
+
+@keyframes shineGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shineMove {
+    0% { letter-spacing: 0.05em; }
+    50% { letter-spacing: 0.15em; }
+    100% { letter-spacing: 0.05em; }
+}
+
 #cake {
     position: fixed;
     bottom: 20%;
@@ -253,7 +313,7 @@ button {
     box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 .errorText {
-    color: #ffffff; /* đỏ hồng dễ nhìn hơn */
+    color: red; /* đỏ hồng dễ nhìn hơn */
     margin-top: 12px;
     font-size: 16px;
     font-weight: bold;
@@ -269,9 +329,9 @@ button {
 /* Hiệu ứng rung lắc khi hiện lỗi */
 @keyframes shake {
     0% { transform: translateX(0); }
-    25% { transform: translateX(-4px); }
-    50% { transform: translateX(4px); }
-    75% { transform: translateX(-4px); }
+    25% { transform: translateX(-8px); }
+    50% { transform: translateX(8px); }
+    75% { transform: translateX(-8px); }
     100% { transform: translateX(0); }
 }
 
@@ -279,4 +339,15 @@ button {
 @keyframes glow {
     from { text-shadow: 0 0 6px #ff66ff, 0 0 15px #ff33cc; }
     to   { text-shadow: 0 0 15px #ff99ff, 0 0 30px #ff33ff; }
+}
+
+.avatar-img {
+    display: block;
+    margin: 0 auto 18px auto;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    border: 3px solid #ffb3d9;
 }
