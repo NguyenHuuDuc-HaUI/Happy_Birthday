@@ -93,12 +93,58 @@
 <!-- Kết thúc -->
 <canvas id="fireworksCanvas" class="hidden"></canvas>
 <canvas id="balloonsCanvas" class="hidden"></canvas>
-<div id="finalText" class="hidden">
+<div id="finalText" class="hidden" style="margin-bottom: 20px;">
     <span class="shine"> HAPPY BIRTHDAY </span>
 </div>
-<img id="cake" class="hidden" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExYzk0NGQ5OGV0bTEzcDk2dHNxazJyeW1yd2k1MzIzcDlsZ241M3A0ZyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qjGEB7KA4ZR680owhY/giphy.gif">
+<div id="cakeWrapper" class="hidden" style="display: flex; flex-direction: column; align-items: center;">
+    <svg id="birthdayCake" width="600" height="500" viewBox="0 0 600 500">
+        <!-- Bánh dưới -->
+        <ellipse cx="300" cy="420" rx="210" ry="100" fill="#ffe0f7" stroke="#d72660" stroke-width="6"/>
+        <rect x="90" y="180" width="420" height="220" rx="80" fill="#ffb3d9" stroke="#d72660" stroke-width="6"/>
+        <!-- Kem -->
+        <ellipse cx="300" cy="180" rx="210" ry="100" fill="#fff6e0" stroke="#d72660" stroke-width="4"/>
+        <!-- Chữ trên mặt bánh -->
+        <text x="300" y="200" text-anchor="middle" font-size="30" font-family="Pacifico, cursive" fill="#2196f3" stroke="#fffff" stroke-width="1.5">
+            Chúc mừng sinh nhật
+        </text>
+        <text x="300" y="245" text-anchor="middle" font-size="38" font-family="Pacifico, cursive" fill="#8e24aa" stroke="#fffff" stroke-width="1.5" font-weight="bold">
+            <tspan font-weight="bold">chị Thanh Tâm</tspan>
+        </text>
+        <!-- Nến số 2 -->
+        <g>
+            <!-- Số 2 lớn làm thân nến -->
+            <text x="260" y="150" text-anchor="middle" font-size="90" font-family="Arial Black, Arial, sans-serif" fill="#ffd700" stroke="#d72660" stroke-width="3">2</text>
+            <!-- Lửa nến số 2 -->
+            <g id="flame2">
+                <ellipse cx="260" cy="70" rx="8" ry="28" fill="#ff9800">
+                    <animate attributeName="opacity" values="1;0.6;1" dur="0.8s" repeatCount="indefinite"/>
+                    <animate attributeName="ry" values="28;32;28" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+                <ellipse cx="260" cy="70" rx="4" ry="16" fill="#fff200" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="0.8s" repeatCount="indefinite"/>
+                    <animate attributeName="ry" values="16;20;16" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+            </g>
+        </g>
+        <!-- Nến số 3 -->
+        <g>
+            <!-- Số 3 lớn làm thân nến -->
+            <text x="340" y="150" text-anchor="middle" font-size="90" font-family="Arial Black, Arial, sans-serif" fill="#ffd700" stroke="#d72660" stroke-width="3">3</text>
+            <!-- Lửa nến số 3 -->
+            <g id="flame3">
+                <ellipse cx="340" cy="70" rx="8" ry="28" fill="#ff9800">
+                    <animate attributeName="opacity" values="1;0.6;1" dur="0.8s" repeatCount="indefinite"/>
+                    <animate attributeName="ry" values="28;32;28" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+                <ellipse cx="340" cy="70" rx="4" ry="16" fill="#fff200" opacity="0.8">
+                    <animate attributeName="opacity" values="0.8;0.4;0.8" dur="0.8s" repeatCount="indefinite"/>
+                    <animate attributeName="ry" values="16;20;16" dur="0.8s" repeatCount="indefinite"/>
+                </ellipse>
+            </g>
+        </g>
+    </svg>
+</div>
 
-<!-- <audio id="music" src="/Audio/audio.mp3" autoplay loop></audio> -->
  <audio id="bgm" loop>
   <source src="Audio/audio.mp3" type="audio/mpeg">
 </audio>

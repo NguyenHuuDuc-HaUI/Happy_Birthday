@@ -1,15 +1,29 @@
 const messages = [
-    { text: "Gửi chị gái yêu quý của em, chúc mừng sinh nhật!", bg: "Picture/pic1.png" },
-    { text: "Em muốn gửi tới chị tất cả những lời chúc tốt đẹp nhất. Mong rằng tuổi mới này sẽ mang đến cho chị thật nhiều niềm vui, sức khỏe và thành công. Chúc chị luôn xinh đẹp, hạnh phúc và rạng rỡ như những đóa hoa. Dù cuộc sống có bận rộn đến đâu, chị vẫn là người chị tuyệt vời nhất trong lòng em, là chỗ dựa tinh thần vững chắc mà em luôn tin tưởng. 🎉", bg: "Picture/pic2.png"},
-    { text: "Em luôn trân trọng những khoảnh khắc được bên cạnh chị, từ những lúc vui cười đến những khi cùng nhau vượt qua khó khăn. Cảm ơn chị vì đã luôn lắng nghe, chia sẻ và đồng hành cùng em trên mọi nẻo đường. Chị là một phần không thể thiếu trong cuộc sống của em. Em luôn ngưỡng mộ sự mạnh mẽ, tài giỏi và cả trái tim nhân hậu của chị. ❤️", bg: "Picture/pic3.png"},
-    { text: "Chúc chị tuổi mới sẽ đạt được mọi ước mơ, luôn an yên và ngập tràn hạnh phúc. Mong rằng những điều tốt đẹp nhất sẽ đến với chị trong năm nay và mãi mãi về sau.\n Sinh nhật vui vẻ, chị nhé! 🥳", bg: "Picture/pic4.png"}
+  { 
+    text: "Happy birthday chị gái 🎂\n Thêm một tuổi mới, em chúc chị luôn khỏe mạnh, tươi tắn và giữ được nụ cười rạng rỡ như chính phong cách của chị.", 
+    bg: "Picture/pic1.png" 
+  },
+  { 
+    text: "Hy vọng trong năm nay, chị sẽ gặp nhiều may mắn, thành công trong công việc và mỗi ngày đều có một điều nhỏ xinh khiến chị mỉm cười. 😄", 
+    bg: "Picture/pic2.png"
+  },
+  { 
+    text: "Em luôn trân trọng những cuộc trò chuyện của hai chị em. Nhờ có chị mà em thấy lòng nhẹ hơn, và cũng học được cách nhìn mọi chuyện bình thản hơn. ❤️", 
+    bg: "Picture/pic3.png"
+  },
+  { 
+    text: "Mong rằng những ước muốn của chị sẽ dần thành hiện thực. Chúc chị mỗi ngày trôi qua đều là một trang sách đẹp: an nhiên, vui vẻ và đầy năng lượng tích cực.\n Sinh nhật thật trọn vẹn và ấm áp nha chị 🥳", 
+    bg: "Picture/pic4.png"
+  }
 ];
+
+
 
 let currentIndex = 0;
 let typingTimeout;
 
-const correctUser = "1"; // username giờ bỏ, chỉ dùng password
-const correctPass = "02092002"; // mật mã mong muốn
+// const correctUser = "1"; 
+const correctPass = "02092002"; // mật mã đăng nhập
 let enteredPass = "";
 
 // Hàm bấm số
@@ -44,20 +58,6 @@ function checkLogin() {
     }
 }
 
-
-// function typeMessage(text) {
-//     clearTimeout(typingTimeout);
-//     let i = 0;
-//     document.getElementById("messageText").innerHTML = "";
-//     function typing() {
-//         if(i < text.length){
-//             document.getElementById("messageText").innerHTML += text.charAt(i);
-//             i++;
-//             typingTimeout = setTimeout(typing, 10);
-//         }
-//     }
-//     typing();
-// }
 function typeMessage(text) {
     const msgEl = document.getElementById("messageText");
     msgEl.innerHTML = "";
@@ -74,7 +74,7 @@ function typeMessage(text) {
         setTimeout(() => {
             p.style.opacity = 1;
             p.style.transform = "translateY(0)";
-        }, i * 1500); // mỗi dòng xuất hiện sau 1.5s
+        }, i * 500); // mỗi dòng xuất hiện sau 0.5s
     });
 }
 
@@ -115,10 +115,7 @@ function startCelebration() {
     document.getElementById("balloonsCanvas").classList.remove("hidden");
     document.getElementById("finalText").classList.remove("hidden");
     document.getElementById("cake").classList.remove("hidden");
-    // document.getElementById("music").play();
 
-
-    // Confetti pháo hoa
     const duration = 4000;
     const end = Date.now() + duration;
     (function frame() {
@@ -149,6 +146,68 @@ function startCelebration() {
     }
     drawBalloons();
 }
+
+function drawFirework(ctx, x, y, colors) {
+    const particles = 30;
+    for (let i = 0; i < particles; i++) {
+        const angle = (2 * Math.PI * i) / particles;
+        const length = 80 + Math.random() * 40;
+        ctx.beginPath();
+        ctx.moveTo(x, y);
+        ctx.lineTo(x + Math.cos(angle) * length, y + Math.sin(angle) * length);
+        ctx.strokeStyle = colors[i % colors.length];
+        ctx.lineWidth = 3 + Math.random() * 2;
+        ctx.stroke();
+    }
+}
+
+function fireworksAroundCake() {
+    const canvas = document.getElementById("fireworksCanvas");
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    const ctx = canvas.getContext("2d");
+
+    // Vị trí quanh bánh (giả sử bánh ở giữa màn hình)
+    const cake = document.getElementById('cakeWrapper');
+    const rect = cake.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+
+    // Các vị trí pháo hoa quanh bánh
+    const positions = [
+        [cx - 120, cy - 80],
+        [cx + 120, cy - 80],
+        [cx - 120, cy + 80],
+        [cx + 120, cy + 80]
+    ];
+    const colors = ['#ffb3d9', '#ffd700', '#8e24aa', '#2196f3', '#fff200', '#ff1744'];
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    positions.forEach(([x, y]) => {
+        drawFirework(ctx, x, y, colors);
+    });
+
+    // Hiệu ứng mờ dần
+    setTimeout(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }, 1800);
+}
+
+// Gọi hàm này khi hiện bánh sinh nhật
+function showCake() {
+    document.getElementById('cakeWrapper').classList.remove('hidden');
+    document.getElementById('flame2').classList.remove('flame-off');
+    document.getElementById('flame3').classList.remove('flame-off');
+    document.getElementById("fireworksCanvas").classList.remove("hidden");
+    fireworksAroundCake(); // Bắn pháo hoa quanh bánh
+    setTimeout(() => {
+        document.getElementById('flame2').classList.add('flame-off');
+        document.getElementById('flame3').classList.add('flame-off');
+        document.getElementById("fireworksCanvas").classList.add("hidden");
+    }, 5000);
+}
+
 window.addEventListener("load", function () {
     const music = document.getElementById("music");
     music.play().catch(err => {
