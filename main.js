@@ -51,7 +51,7 @@ function checkLogin() {
             console.log("Autoplay bị chặn:", err);
         });
     } else {
-        document.getElementById("loginError").innerText = "Aww, mật khẩu bị sai rùii. Zui lòng nhập lại nghennn!";
+        document.getElementById("loginError").innerText = "Aww, mật khẩu bị sai roài. Zui lòng nhập lại nha chị hehe!";
         // 🔥 Reset mật khẩu nhập sai
         enteredPass = "";
         document.getElementById("pinBox").value = "";

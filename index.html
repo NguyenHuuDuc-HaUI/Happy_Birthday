@@ -39,11 +39,11 @@
         <button class="numKey" onclick="pressNum('9')">9</button>
 
         <!-- Nút Xóa -->
-        <button class="actionKey" onclick="deleteNum()">⌫</button>
+        <button id="delete" class="actionKey" onclick="deleteNum()">⌫</button>
         <button class="numKey" onclick="pressNum('0')">0</button>
 
         <!-- Nút Login -->
-        <button class="actionKey" onclick="checkLogin()">
+        <button id="login" class="actionKey" onclick="checkLogin()">
             <i class="fas fa-check"></i>
         </button>
     </div>
@@ -55,9 +55,7 @@
 <!-- Lời chúc -->
 <div id="messages" class="center hidden">
     <h2 id="messageText"></h2>
-    <!-- <img id="sticker" class="hidden"> -->
     <div class="btn-NextPrev">
-        <!-- <button class="nav-btn" onclick="prevMessage()">⬅ Prev</button> -->
         <div class="btn-conteiner">
             <button class="btn-content" onclick="prevMessage()">
                 <span class="btn-title">Prev</span>
@@ -72,8 +70,6 @@
                 </span>
             </button>
         </div>
-        <!-- <button class="nav-btn" onclick="nextMessage()">Next ➡</button> -->
-         <!-- From Uiverse.io by Li-Deheng -->
         <div class="btn-conteiner">
             <button class="btn-content" onclick="nextMessage()">
                 <span class="btn-title">Next</span>
